@@ -65,7 +65,21 @@ class UrlCycleCheck{
     }
     
 }
-
+class CheckIp{
+    private $curl_url='';
+    function __construct($appid,$appkey){
+        $this->curl_url=(new BuSiNiaoApi($appid,$appkey))->get_url(BUSINIAO_API_TYPE_CheckIp);
+        
+    }
+    function CheckIp($ip){
+        $postArr['ip']=$ip;
+        return $this->curl($postArr);
+    }
+    private function curl($postArr){
+        $curl=new ApiCurlLib($this->curl_url,[],$postArr);
+        return $curl->curl();
+    }
+}
 
 class SingleShortUrl{
     private $curl_url='';
