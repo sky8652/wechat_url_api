@@ -83,7 +83,7 @@ $appid='12345678';
 $appkey='GetAppKeyAtThe:https://www.wechaturl.us';
 
 /**
- * 返回code代码汇总：http://api.v94.cn/web/#/1?page_id=1
+ * 返回code代码汇总：https://wechaturl.gitbook.io/wechaturl/code_summary
  * 本案例做了3个功能
  * 1.微信url检测状态
  * 2.获取微信短网址
@@ -91,21 +91,21 @@ $appkey='GetAppKeyAtThe:https://www.wechaturl.us';
  * */
 $url='https://www.baidu.com';
 /**微信url检测状态
- * api详细帮助：http://api.v94.cn/web/#/1?page_id=2
+ * api详细帮助：https://wechaturl.gitbook.io
  * 
  * */
 $UrlCheck_result=(new UrlCheck($appid,$appkey))->get($url);
 print_r(json_decode($UrlCheck_result,true));
 
 /**获取微信短网址
- * http://api.v94.cn/web/#/1?page_id=9
+ * https://wechaturl.gitbook.io
  * */
 $GetWechatShortUrl_result=(new GetWechatShortUrl($appid,$appkey))->get($url);
 print_r(json_decode($GetWechatShortUrl_result,true));
 
 /**获取微博短网址
  * 
- * http://api.v94.cn/web/#/1?page_id=8
+ * https://wechaturl.gitbook.io
  * **/
 $GetWeiboShortUrl_result=(new GetWeiboShortUrl($appid,$appkey))->get($url);
 print_r(json_decode($GetWeiboShortUrl_result,true));
@@ -119,10 +119,10 @@ UrlCycleCheck_example.php
 include_once 'businiao.lib/businiao.lib.php';
  /**
  * appid 和 appkey请到https://www.wechaturl.us/user/index.html#userinfo/userinfo 免费获取
- * 本页面api超级详细介绍页面：http://api.v94.cn/web/#/1?page_id=3
+ * 本页面api超级详细介绍页面：https://wechaturl.gitbook.io
  * 本功能对应的网页版前端：https://www.wechaturl.us/user/index.html#business_management/url_cycle_check
  * 本测试页面的功能：按照你设置的频率定时循环检测url($is_monitor 需要开启监控才行)，如果url被微信封杀，则系统会通过微信，短信，邮件实时通知你，以减少你的损失
- 返回code代码汇总：http://api.v94.cn/web/#/1?page_id=1
+ 返回code代码汇总：https://wechaturl.gitbook.io/wechaturl/code_summary
  * ***/
 $appid='12345678';
 $appkey='GetAppKeyAtThe:https://www.wechaturl.us';
@@ -157,7 +157,7 @@ echo "<br>------------------下面修改监控属性返回结果----------------
 
 //删除监控属性，请自己接触下面2段代码注释
 echo "<br>------------------下面是删除监控返回结果---------------------------------<br>\n";
-//$delete_result=$UrlCycleCheck->delete('http://www.baidu.com');
+//$delete_result=$UrlCycleCheck->delete('http://www.google.com');
 //print_r(json_decode($delete_result,true));
 
 
@@ -178,11 +178,11 @@ SingleShortUrl_example.php
 include_once 'businiao.lib/businiao.lib.php';
 /**
  * appid 和 appkey请到https://www.wechaturl.us/user/index.html#userinfo/userinfo 免费获取
- * 本页面api超级详细介绍页面：http://api.v94.cn/web/#/1?page_id=18
+ * 本页面api超级详细介绍页面：https://wechaturl.gitbook.io/wechaturl/code_summary
  * 本功能对应的网页版前端：https://www.wechaturl.us/user/index.html#business_management/single_url_list
  * 本测试页面的功能：你可以添加任何一个url地址，并生成微博短网址，你只需要将短网址公开。当然系统会实时监控url是否被微信封杀，如果封杀，我们会及时通过微信，短信，邮箱通知你
  *  如果你希望添加无限个网址或被封网址自动更换，请选择另一个接口案例DomainShortUrl_example.php,
- 返回code代码汇总：http://api.v94.cn/web/#/1?page_id=1
+ 返回code代码汇总：https://wechaturl.gitbook.io/wechaturl/code_summary
  * ***/
 $appid='12345678';
 $appkey='GetAppKeyAtThe:https://www.wechaturl.us';
@@ -232,10 +232,10 @@ DomainShortUrl_example.php
 include_once 'businiao.lib/businiao.lib.php';
 /**
  * appid 和 appkey请到https://www.wechaturl.us/user/index.html#userinfo/userinfo 免费获取
- * 本页面api超级详细介绍页面：http://api.v94.cn/web/#/1?page_id=14
+ * 本页面api超级详细介绍页面：https://wechaturl.gitbook.io/wechaturl/code_summary
  * 本功能对应的网页版前端：https://www.wechaturl.us/user/index.html#business_management/domain_url_list
  * 本测试页面的功能：本功能会自动启动监控微信封杀情况,如果你设置了多个落地页域名.某个落地页域名封,会自动切换到可用的域名.同时我们会以短信/微信/邮箱实时通知你
- 返回code代码汇总：http://api.v94.cn/web/#/1?page_id=1
+ 返回code代码汇总：https://wechaturl.gitbook.io/wechaturl/code_summary
  * ***/
 $appid='12345678';
 $appkey='GetAppKeyAtThe:https://www.wechaturl.us';
