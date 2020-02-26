@@ -71,8 +71,16 @@ class CheckIp{
         $this->curl_url=(new BuSiNiaoApi($appid,$appkey))->get_url(BUSINIAO_API_TYPE_CheckIp);
         
     }
-    function CheckIp($ip){
+    /**
+     * $ip:ipv4
+     * $search_range:可以是 369,tencent,jinshan,baidu;多个 请用逗号隔开。
+     * 具体查看官方接口https://wechaturl.gitbook.io/wechaturl/check_ip
+     */
+    function CheckIp($ip,$search_range=''){
         $postArr['ip']=$ip;
+        if($search_range!=""){
+            $postArr['search_range']=$search_range;
+        }
         return $this->curl($postArr);
     }
     private function curl($postArr){
