@@ -1,4 +1,6 @@
 <?php
+
+exit("我们的会员中心已经集成这个功能了https://www.wechaturl.us/user/index.html#business_management/short_domain_wechatlogin_list");
 /**
  *本功能简介:本功能是通过微信公众号登录来实现防封的。
  *但是本功能需要使用“动态设置任何URI参数”详细请见，https://wechaturl.gitbook.io/wechaturl/domain/domain_url_anyurl

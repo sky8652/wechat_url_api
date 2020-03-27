@@ -18,10 +18,12 @@ $visit_type='browser';
 //$short_domain进入会员中心-->业务管理-->入口域名池-->短网址域名列表 ,使用“入口域名”
 //当然你也可以通过api智能获取https://wechaturl.gitbook.io/wechaturl/shorturl/user_short_domain_list
 $short_domain='http://www.yourshortdoman.com';
-
+$is_hide_qq_menu=true;//如果希望把qq右上角菜单隐藏，则true,否则false;
 $urlanyurl=new UrlAnyurl($appid,$short_domain,$request_uri,$visit_type,$group_id);
-$url=$urlanyurl->get();
+$url=$urlanyurl->get($is_hide_qq_menu);
+
 echo '得到的拼接的网址:<br>'.$url;
+
 /************如果分享出去觉得网址很长，比如分享出去后，用户能看到这个短网址。那么可以用下面方法缩短。否则跳过********************8
 /**
 $appkey='get the value from www.wechaturl.us';
@@ -46,10 +48,14 @@ class  UrlAnyurl{
         ];
         $this->short_domain=$short_domain;
     }
-    function get(){
+    
+    function get($is_hide_qq_menu=true){
         $url=$this->short_domain;
         $url.='/'.$this->march_prefix();
         $url.=base64_encode(json_encode($this->data));
+        if($is_hide_qq_menu){
+            $url.='?_wv=2';
+        }
         return $url;
     }
     
