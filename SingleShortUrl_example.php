@@ -1,5 +1,6 @@
 <?php
 include_once 'src/businiao.lib/businiao.lib.php';
+//require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 /**
  * appid 和 appkey请到https://www.wechaturl.us/user/index.html#userinfo/userinfo 免费获取
  * 本页面api超级详细介绍页面：https://wechaturl.gitbook.io/

@@ -1,34 +1,44 @@
 <?php
+header("Content-Type: text/html; charset=utf-8");
 include_once 'src/businiao.lib/businiao.lib.php';
+//require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $appid='12345678';
 $appkey='GetAppKeyAtThe:https://www.wechaturl.us'; 
 //本功能的作用是屏蔽厂商的云端检测功能
-$CheckIp=new CheckIp($appid,$appkey);
-$ip=get_real_client_ip();
-$data=$CheckIp->CheckIp($ip);
-$result=json_decode($data,true);
-print_r($result);//debug
-if($result['code']==1){
+//如果你的网站是多页面,为了让某个用户访问时候只检测一次,所以我们需要启动session
+session_start();
+$CheckIpResult=null;
+if(!isset($_SESSION['CheckIpResult'])){
+    $CheckIp=new CheckIp($appid,$appkey);
+    $data=$CheckIp->CheckIp();//当然你在括号内,填写任意ip地址,可以测试效果
+    $CheckIpResult=json_decode($data,true);
+    if(!empty($CheckIpResult)){
+        $_SESSION['CheckIpResult']=$CheckIpResult;
+    }
+}else{
+    $CheckIpResult=$_SESSION['CheckIpResult'];
+}
+/******debug--正式使用时候,请注释掉print_r($CheckIpResult)*************/
+//print_r($CheckIpResult);
+/******debug--正式使用时候,请注释掉上面的print_r($CheckIpResult)*************/
+if($CheckIpResult['code']==1){
     //here,show  error page
-    http_response_code(404);
-    exit('page no found!');
+    //http_response_code(404);
+    //exit('page no found!');
+    if(isset($CheckIpResult['show_error_url'])){
+        exit(file_get_contents($CheckIpResult['show_error_url']));//当然,你可以自己写个网址
+    }else{
+        exit('page no found!');
+    }
 }
 
 
-function get_real_client_ip(){
-    $real_client_ip=$_SERVER['REMOTE_ADDR'];
-    $ng_client_ip=( isset($_SERVER['HTTP_X_FORWARDED_FOR'])  ?   $_SERVER['HTTP_X_FORWARDED_FOR']    :   "");//反向代理
-    
-    if(isset($_SERVER['HTTP_CLIENTIP'])){
-        $real_client_ip=$_SERVER['HTTP_CLIENTIP'];
-    }
-    if($ng_client_ip!="" and strlen($ng_client_ip)>5){
-        if(strstr($ng_client_ip, ',')!=""){
-            $a=explode(',', $ng_client_ip);
-            $real_client_ip=$a[0];
-        }else{
-            $real_client_ip=$ng_client_ip;
-        }
-    }
-    return $real_client_ip;
-}
+//下面就是你的代码
+//echo '这里写你的代码吧';
+?>
+<?php 
+//如果你的是静态单页面网站或者vue单页面,如./default.html,那使用下面方法
+//echo file_get_contents('./default.html')
+?>
+
+

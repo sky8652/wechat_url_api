@@ -26,6 +26,7 @@ echo '得到的拼接的网址:<br>'.$url;
 
 /************如果分享出去觉得网址很长，比如分享出去后，用户能看到这个短网址。那么可以用下面方法缩短。否则跳过********************8
 /**
+//require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $appkey='get the value from www.wechaturl.us';
 
 $GetWechatShortUrl_result=(new GetWechatShortUrl($appid,$appkey))->get($url);

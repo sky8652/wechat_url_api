@@ -1,5 +1,6 @@
 <?php
 include_once 'src/businiao.lib/businiao.lib.php';
+//require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 $appid='12345678';
 $appkey='GetAppKeyAtThe:https://www.wechaturl.us';
 
