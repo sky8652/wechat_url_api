@@ -12,6 +12,19 @@ composer require goodyes/wechat_url_check_preventing_blocked_api ^1.1.0
 
 ### 不死鸟微信/QQ防封杀系统是适应当下微信封杀规则,开发的一整套防封杀解决方案：
 
+##### CheckIp_example.php 功能:屏蔽中国最大的社交聊天软件所在公司以及其他厂商的云端IP检测
+
+##### splice_url_anyurl.php 功能:自定义参数传递(无需api,即可实现防封)
+
+##### DomainShortUrl_example.php 功能:域名防封相关接口案例
+
+##### SingleShortUrl_example.php 功能:任意网址防封相关接口案例
+
+##### UrlCheck.GetWeiboUrl.GetWechatUrl_example.php 功能:网址实时检测是否被红.将长网址转短网址
+
+##### UrlCycleCheck_example.php 功能:管理网址检测
+
+
 ####  一、查询功能
 
 	1.获取微信短网址（本api已经支持）
