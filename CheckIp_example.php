@@ -10,7 +10,7 @@ session_start();
 $CheckIpResult=null;
 if(!isset($_SESSION['CheckIpResult'])){
     $CheckIp=new CheckIp($appid,$appkey);
-    $data=$CheckIp->CheckIp();//当然你在括号内,填写任意ip地址,可以测试效果
+    $data=$CheckIp->CheckIp();//当然你在括号内,填写任意ip地址,可以测试效果 如这个ip:101.227.139.6
     $CheckIpResult=json_decode($data,true);
     if(!empty($CheckIpResult)){
         $_SESSION['CheckIpResult']=$CheckIpResult;
