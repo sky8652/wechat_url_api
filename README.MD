@@ -1,6 +1,7 @@
 ## api完整教程镜像版 https://wechaturl.gitbook.io/
 
 ```shell
+注意:php版本必须是php 7.* 或以上
 如果你采用composer安装，复制下面的即可
 composer require goodyes/wechat_url_check_preventing_blocked_api ^1.1.0
 #https://packagist.org/packages/goodyes/wechat_url_check_preventing_blocked_api

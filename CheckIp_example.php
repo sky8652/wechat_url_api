@@ -19,7 +19,7 @@ if(!isset($_SESSION['CheckIpResult'])){
     $CheckIpResult=$_SESSION['CheckIpResult'];
 }
 /******debug--正式使用时候,请注释掉print_r($CheckIpResult)*************/
-//print_r($CheckIpResult);
+print_r($CheckIpResult);
 /******debug--正式使用时候,请注释掉上面的print_r($CheckIpResult)*************/
 if($CheckIpResult['code']==1){
     //here,show  error page
