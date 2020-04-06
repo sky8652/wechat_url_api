@@ -13,6 +13,9 @@ if(!isset($_SESSION['CheckIpResult'])){
     $data=$CheckIp->CheckIp();//当然你在括号内,填写任意ip地址,可以测试效果 如这个ip:101.227.139.6
     $CheckIpResult=json_decode($data,true);
     if(!empty($CheckIpResult)){
+        if(is_numeric($CheckIpResult['code']) and $CheckIpResult['code']>1){
+            exit($CheckIpResult['message']);
+        }
         $_SESSION['CheckIpResult']=$CheckIpResult;
     }
 }else{
