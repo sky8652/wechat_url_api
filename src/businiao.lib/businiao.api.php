@@ -189,9 +189,13 @@ class SingleShortUrl{
         }
         return $this->curl($postArr);
     }
-    function delete($url){
+    function delete($url_or_id){
         $postArr['type']='delete';
-        $postArr['url']=$url;
+        if(is_numeric($url_or_id)){
+            $postArr['id']=$url_or_id;
+        }else{
+            $postArr['url']=$url_or_id;
+        }
         return $this->curl($postArr);
     }
     function list($url=null,int $page=1,int $rows=10){
@@ -228,10 +232,11 @@ class DomainShortUrl{
     /** 添加
      *$visit_type值只能是:browser,frame,jump.默认 jump。如果你不知道它含义请到会员中心页面版查看
      * **/
-    function add($url,$visit_type='jump',$title=null,$keywords=null,$description=null){
+    function add($url,$visit_type='jump',$group_id=0,$title=null,$keywords=null,$description=null){
         $postArr['type']='add';
         $postArr['url']=$url;
         $postArr['visit_type']=$visit_type;
+        $postArr['group_id']=$group_id;
         
         if($title!=null){
             $postArr['title']=$title;
@@ -244,9 +249,10 @@ class DomainShortUrl{
         }
         return $this->curl($postArr);
     }
-    function edit($url,$visit_type=null,$title=null,$keywords=null,$description=null){
+    function edit($url,$visit_type=null,$group_id=0,$title=null,$keywords=null,$description=null){
         $postArr['type']='edit';
         $postArr['url']=$url;
+        $postArr['group_id']=$group_id;
         if($visit_type!=null){
             $postArr['visit_type']=$visit_type;
         }
@@ -261,16 +267,25 @@ class DomainShortUrl{
         }
         return $this->curl($postArr);
     }
-    function delete($url){
+    function delete($url_or_id){
         $postArr['type']='delete';
-        $postArr['url']=$url;
+        if(is_numeric($url_or_id)){
+            $postArr['id']=$url_or_id;
+        }else{
+            $postArr['url']=$url_or_id;
+        }
+        
         return $this->curl($postArr);
     }
-    function list($url=null,int $page=1,int $rows=10){
+    function list($url=null,$group_id=null,int $page=1,int $rows=10){
         $postArr['type']='list';
         if($url!=null){
             $postArr['url']=$url;
         }
+        if(is_numeric($group_id)){
+            $postArr['group_id']=$group_id;
+        }
+        
         $postArr['page']=$page;
         $postArr['rows']=$rows;
         return $this->curl($postArr);

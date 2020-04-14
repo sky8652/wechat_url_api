@@ -25,18 +25,18 @@ print_r(json_decode($LandDomainList_result,true));
 
 //添加网址,
 echo "<br>------------------下面是添加监控返回结果---------------------------------<br>\n";
-$add_result=$DomainShortUrl->add('http://www.baidu.com','jump','网站标题','网站关键词','网站描述');
+$add_result=$DomainShortUrl->add('http://www.baidu.com','jump',0,'网站标题','网站关键词','网站描述');
 print_r(json_decode($add_result,true));
 
 
 //修改属性，请自己接触下面2段代码注释
 echo "<br>------------------下面修改监控属性返回结果---------------------------------<br>\n";
-$edit_result=$DomainShortUrl->edit('http://www.baidu.com','jump','网站标题1','网站关键词1','网站描述1');
+$edit_result=$DomainShortUrl->edit('http://www.baidu.com','jump',0,'网站标题1','网站关键词1','网站描述1');
 print_r(json_decode($edit_result,true));
 
 
 
-//删除，请自己接触下面2段代码注释
+//删除，请自己解除下面2段代码注释
 echo "<br>------------------下面是删除监控返回结果---------------------------------<br>\n";
 //$delete_result=$DomainShortUrl->delete('http://www.baidu.com');
 //print_r(json_decode($delete_result,true));

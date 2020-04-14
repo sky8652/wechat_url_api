@@ -3,7 +3,7 @@ include_once 'businiao.defined.php';
 include_once 'businiao.curlLib.php';
 include_once 'businiao.api.php';
 /**github
-git tag -a v1.1.8 -m 'v1.1.8'
+git tag -a v1.1.9 -m 'v1.1.9'
 git push origin --tags
 composer require goodyes/wechat_url_check_preventing_blocked_api ^1.1.0
  * */
